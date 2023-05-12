@@ -1,16 +1,17 @@
 #include "main.h"
 
 /**
- * _abs - checks the absolute value
- * @n: is the variable
- * Return: 0 or absolute value of c
+ * _abs - absolue velue of int
+ * @i : the variable from we gonna get the abs value
+ *
+ * Return: Always absolut balue of i.
  */
 
-int _abs(int n)
+int	_abs(int i)
 {
-if (n >= 0)
-{
-return (n);
-}
-return (-n);
+	if (i < 0)
+		return (-i);
+	else
+		return (i);
+	return (0);
 }

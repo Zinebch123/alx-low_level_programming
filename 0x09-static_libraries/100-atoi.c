@@ -1,29 +1,48 @@
 #include "main.h"
 
 /**
- * _atoi - convert string to integer.
- * @s:string
- * Return: integer.
+ * _atoi - Convert a string to an integer.
+ * @s: The pointer to convert
+ *
+ * Return: A integer
  */
 
-int _atoi(char *s)
+int	_atoi(char *s)
 {
-unsigned int r = 0;
-int sign = 1;
-int i = 0;
+	int		i;
+	unsigned int	result;
+	int		sign;
+	int		j;
 
-while (s[i] != '\0' && (s[i] < '0' || s[i] > '9'))
-{
-if (s[i] == '-')
-sign = sign * -1;
-i++;
-}
+	sign = 1;
+	i = 0;
+	result = 0;
+	j = 0;
+	while (s[i] != '\0')
+	{
+		while (s[i] == '\n' || s[i] == '\v' || s[i] == '\t'
+				|| s[i] == '\f' || s[i] == '\r' || s[i] == ' ')
+			i++;
 
-while (s[i] >= '0' && s[i] <= '9' && s[i] != '\0')
-{
-r = (r * 10) + (s[i] - '0');
-i++;
-}
-r = r *sign;
-return (r);
+		if (s[i] == '-')
+		{
+			sign *= -1;
+		}
+		if (s[i] == '-' && s[i] == '+')
+		{
+			i++;
+		}
+		while ((s[i] >= '0' && s[i] <= '9'))
+		{
+			j = 1;
+			result = result * 10 + s[i] - '0';
+			i++;
+		}
+		if (s[i] == '\0' || j == 1)
+		{
+			break;
+		}
+		i++;
+	}
+	return (result * sign);
 }
