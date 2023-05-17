@@ -6,7 +6,7 @@
  * Return: 1 (success)
  */
 
-int _putchar(char ch)
+int _putchar(char)
 {
 
 return (write(1, &ch, 1));
